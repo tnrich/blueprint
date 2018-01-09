@@ -27,6 +27,7 @@ export interface IKeyComboProps {
     disabled?: boolean;
     preventDefault?: boolean;
     stopPropagation?: boolean;
+    hideKeyText?: boolean;
 }
 
 export class KeyCombo extends React.Component<IKeyComboProps, {}> {
@@ -40,7 +41,7 @@ export class KeyCombo extends React.Component<IKeyComboProps, {}> {
                 components.push(
                     <kbd className="pt-key pt-modifier-key" key={`key-${i}`}>
                         <span className={`pt-icon-standard ${icon}`} />
-                        {key}
+                        {hideKeyText ? "" : key}
                     </kbd>,
                 );
             } else {
